@@ -1,0 +1,359 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN BASE (Universo de Starmie)
+   ========================================================================== */
+:root {
+  --purple-starmie: #4a2574;
+  --gold-starmie: #ffd700;
+  --core-ruby: #e63946;
+  --user-bubble: #1f4068;
+  --starmie-bubble: #162447;
+  --text-light: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-color: #020208; /* Fondo negro profundo idéntico al de tu foto */
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. FONDO DE BRILLOS Y ESTRELLAS (Efecto sutil de tu imagen)
+   ========================================================================== */
+.stars-glitter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  
+  /* SOLUCIÓN: Eliminamos las líneas invasivas. Dejamos puros puntos estelares y destellos suaves */
+  background-image: 
+    radial-gradient(circle, #00d2ff 2px, transparent 2px),  /* Estrellas Azules */
+    radial-gradient(circle, #ff007f 2px, transparent 2px),  /* Estrellas Rosas */
+    radial-gradient(circle, #9d4edd 1.5px, transparent 1.5px),  /* Estrellas Moradas */
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px); /* Brillos pequeños */
+
+  /* Distribución dispersa y sutil como la galaxia real */
+  background-size: 160px 160px, 200px 200px, 130px 130px, 90px 90px;
+  background-position: 10px 20px, 45px 85px, 90px 10px, 20px 40px;
+  
+  /* Animación de parpadeo suave sin estirar la pantalla */
+  animation: brilloEstelarImagen 4s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   3. BARRA DE NAVEGACIÓN Y MAIN
+   ========================================================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #101216; /* Color oscuro limpio para el menú */
+}
+
+nav a {
+  color: #8ab4f8;
+  margin-left: 1.5rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+  min-height: 60vh;
+}
+
+/* ==========================================================================
+   4. INTERFAZ DE CHAT (Limpia y traslúcida)
+   ========================================================================== */
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.chat-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.starmie-mini-pic {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px var(--core-ruby));
+}
+
+.chat-container h2 {
+  text-align: center;
+  color: var(--gold-starmie);
+  margin-bottom: 0;
+}
+
+/* SOLUCIÓN: Caja de chat limpia, morada traslúcida y elegante, con el lindo borde Rubí fijo */
+.chat-box {
+  flex: 1;
+  background-color: rgba(26, 26, 46, 0.75); /* Fondo oscuro traslúcido para leer perfecto */
+  border: 3px solid var(--core-ruby); /* Borde de gema Rubí fijo */
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.3); /* Resplandor suave rojo */
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  backdrop-filter: blur(8px); /* Efecto esmerilado elegante */
+}
+
+/* ==========================================================================
+   5. BURBUJAS Y COMPONENTES INTERNOS
+   ========================================================================== */
+.message {
+  max-width: 85%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 18px;
+  font-size: 0.95rem;
+}
+
+.message.assistant {
+  background-color: var(--starmie-bubble);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border-left: 4px solid var(--gold-starmie);
+  color: #ffffff;
+}
+
+.message.user {
+  background-color: var(--user-bubble);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  border-right: 4px solid var(--core-ruby);
+  color: #ffffff;
+}
+
+.message.system {
+  background-color: transparent;
+  align-self: center;
+  text-align: center;
+  color: #a2a2c2;
+  font-size: 0.85rem;
+}
+
+.message.system-error {
+  background-color: rgba(230, 57, 70, 0.2);
+  color: #ffb3b3;
+  align-self: center;
+  border: 1px solid var(--core-ruby);
+}
+
+.typing-status {
+  font-size: 0.85rem;
+  color: var(--gold-starmie);
+  font-style: italic;
+  padding: 0.5rem;
+  animation: pulse-starmie 1.5s infinite ease-in-out;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.chat-form input {
+  flex: 1;
+  background-color: #1a1a2e;
+  border: 2px solid var(--purple-starmie);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: #ffffff;
+}
+
+.chat-form input:focus {
+  outline: none;
+  border-color: var(--gold-starmie);
+}
+
+.chat-form button {
+  background-color: var(--purple-starmie);
+  color: #ffffff;
+  border: 1px solid var(--gold-starmie);
+  border-radius: 8px;
+  padding: 0 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN Y ANIMACIONES
+   ========================================================================== */
+@media (min-width: 600px) {
+  .message { max-width: 75%; }
+}
+
+@media (min-width: 1024px) {
+  .chat-container { height: 75vh; }
+}
+
+@keyframes pulse-starmie {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Animación sutil de parpadeo estelar de fondo */
+@keyframes brilloEstelarImagen {
+  0%, 100% {
+    opacity: 0.5;
+    filter: brightness(100%);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(160%);
+  }
+}
+
+/* ==========================================================================
+   7. VISTA HOME (Portal Místico de Bienvenida)
+   ========================================================================== */
+.home-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.home-card {
+  background-color: rgba(26, 26, 46, 0.8);
+  border: 2px solid var(--purple-starmie);
+  box-shadow: 0 0 25px rgba(74, 37, 116, 0.4);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.starmie-portal {
+  margin-bottom: 1.5rem;
+}
+
+
+.home-card h1 {
+  color: var(--gold-starmie);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.home-card .subtitle {
+  color: #a2a2c2;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.intro-text {
+  color: #e2e2e2;
+  font-size: 0.95rem;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Botón interactivo llamativo estilo Rubí */
+.btn-portal {
+  display: inline-block;
+  background-color: var(--core-ruby);
+  color: #ffffff;
+  border: 1px solid var(--gold-starmie);
+  border-radius: 30px;
+  padding: 0.8rem 2.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-portal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(230, 57, 70, 0.8);
+  background-color: #ef4755;
+  text-decoration: none;
+}
+
+/* Animación de levitación */
+@keyframes levitacionPokemon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ==========================================================================
+   8. VISTA ABOUT (Información del Proyecto y Personaje)
+   ========================================================================== */
+.about-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.about-card {
+  background-color: rgba(26, 26, 46, 0.8);
+  border: 2px solid var(--purple-starmie);
+  box-shadow: 0 0 25px rgba(74, 37, 116, 0.4);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  backdrop-filter: blur(8px);
+}
+
+.about-card h1 {
+  color: var(--gold-starmie);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.about-card .character-title {
+  margin-top: 2rem;
+}
+
+.about-text {
+  color: #e2e2e2;
+  font-size: 0.95rem;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-text strong {
+  color: var(--gold-starmie);
+}

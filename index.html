@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatFlow</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Starchat</h1>
+    <!-- data-link marca estos como navegación interna de la SPA -->
+    <nav>
+      <a href="/" data-link>Home</a>
+      <a href="/chat" data-link>Chat</a>
+      <a href="/about" data-link>About</a>
+    </nav>
+  </header>
+
+  <!-- Este es el único contenedor que JavaScript va a reescribir -->
+  <main id="app"></main>
+
+  <!-- Orden importante: views y router antes de main -->
+  <script src="./src/main.js" type="module"></script>
+</body>
+</html>
