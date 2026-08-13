@@ -47,7 +47,7 @@ npx vitest run
    vercel --prod
    ```
 2. **Configurar la API Key en la Web:** 
-   - Entra a tu panel de control en (https://proyecto-integrador-3-eight.vercel.app) e ingresa a tu proyecto.
+   - Entra a tu panel de control en [vercel.com] (https://proyecto-integrador-3-eight.vercel.app) e ingresa a tu proyecto.
    - Ve a **Settings** -> **Environment Variables**.
    - Añade una nueva variable con la Key `GEMINI_API_KEY` y pega tu clave real de Google en el campo Value.
    - Haz clic en **Save**.
@@ -69,7 +69,7 @@ npx vitest run
 ## 🔗 Link a la Aplicación Desplegada
 
 Puedes acceder a la versión en vivo de la aplicación en internet a través del siguiente enlace oficial:
-👉 **[Ingresa aquí a StarChat en Vercel](https://vercel.app)** *(Nota: Reemplaza esta URL con el enlace azul final que te dé la terminal al subirlo).*
+(https://proyecto-integrador-3-eight.vercel.app)
 
 ---
 
