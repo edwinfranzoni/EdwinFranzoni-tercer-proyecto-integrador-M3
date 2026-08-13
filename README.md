@@ -58,9 +58,19 @@ npx vitest run
 ## 📸 Capturas de Pantalla de la Aplicación Funcionando
 
 
-* **Vista de Inicio (Home):** `![Vista Home](./assets/captura-home.png)`
-* **Vista de Conversación (Chat):** `![Vista Chat](./assets/captura-chat.png)`
-* **Vista de Información (About):** `![Vista About](./assets/captura-about.png)`
+## 📸 Capturas de Pantalla de la Aplicación Funcionando
+
+### Vista de Inicio (Home)
+
+![Vista Home](./assets/captura-home.png)
+
+### Vista de Conversación (Chat)
+
+![Vista Chat](./assets/captura-chat.png)
+
+### Vista de Información (About)
+
+![Vista About](./assets/captura-about.png)
 
 ---
 
