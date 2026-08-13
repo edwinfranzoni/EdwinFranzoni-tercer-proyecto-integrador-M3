@@ -57,12 +57,10 @@ npx vitest run
 
 ## 📸 Capturas de Pantalla de la Aplicación Funcionando
 
-*(Nota: Asegúrate de arrastrar tus imágenes a una carpeta llamada `assets` en tu proyecto para que los enlaces se muestren correctamente en tu entrega).*
 
 * **Vista de Inicio (Home):** `![Vista Home](./assets/captura-home.png)`
 * **Vista de Conversación (Chat):** `![Vista Chat](./assets/captura-chat.png)`
 * **Vista de Información (About):** `![Vista About](./assets/captura-about.png)`
-* **Consola de Testing (Vitest):** `![Pruebas Exitosas](./assets/captura-tests.png)`
 
 ---
 
