@@ -55,7 +55,6 @@ npx vitest run
 
 ---
 
-## 📸 Capturas de Pantalla de la Aplicación Funcionando
 
 
 ## 📸 Capturas de Pantalla de la Aplicación Funcionando
